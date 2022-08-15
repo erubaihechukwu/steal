@@ -1,0 +1,37 @@
+{% extends 'user/temp.html'%}
+{%block title%}
+Profile
+{%endblock%}
+{%block topp%}
+    <div class="container-fluid topp">
+        <div class="row">
+          <div class="col-md-2 hometop">
+            <nav class="navbar navbar-expand-lg">
+              <div id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="/">Home</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+       </div>
+{%endblock%}
+{%block homecat%}
+      <div class="container" style="min-height:400px;">
+        <div class="p-3 mt-5">
+    <form action="/user/upp" method="post" enctype="multipart/form-data">
+        <div class="form-floating my-3 ">
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}" id="csrf_token">
+            <input type="file" name="profilepix" placeholder="file dorectory" class="form-control form-control-sm" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #a8c868; color:#fff;">
+        </div>
+        <p>{{user_deets.user_fname}}</p>
+        <div class="d-flex btn-group">
+            <button class="btn btn-lg color3 d-inline-block" style="border:2px solid #a8c868;">update profile</button>
+        </div>
+    </form>
+</div>
+      </div>
+{%endblock%}

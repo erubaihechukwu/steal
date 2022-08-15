@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<!---
+Project: Steal
+Date: 5/may/2022
+Author: Eruba Iheckukwu
+--->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{%block title%}Home{%endblock%}</title>
+	<!-- Bootstrap CSS Stylesheet-->
+			<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/js/bootstrap.js')}}">
+			<link rel="stylesheet" type="text/css" href="fa/fontawesome.min.css">
+			<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/steal.css')}}">
+</head>
+    <body>
+        {%block topp%}
+
+        {%endblock%}
+        {%block topban%}
+
+        {%endblock%}
+        {%block homecat%}
+        {%endblock%}
+        {%block listing%}
+        {%endblock%}
+      <div class="container-fluid lastt">
+        <div class="row">
+          <div class="col">
+            <p class="text-center">© 2022 steal.website</p>
+          </div>
+        </div>
+      </div>
+    	<script type="text/javascript" language="javascript">
+    	
+    	</script> 
+
+    </body>
+</html>
