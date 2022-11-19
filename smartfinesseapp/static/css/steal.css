@@ -1,0 +1,279 @@
+/*
+Project: Steal
+Date: 5/may/2022
+Author: Eruba Iheckukwu
+*/
+.footer a{
+	text-decoration: none;
+	color: rgba(190, 190, 190, 1.0);
+	font-weight: 700;
+}
+.footer{
+	margin: 20px;
+	max-width: 200px;
+	color:rgba(255,255,255,1.0);
+}
+.footerc{
+	background-color:rgba(0, 0, 0, 1.0);
+}
+.lastt{
+	background-color:rgba(0, 0, 0, 1.0);
+}
+.lastt p{
+    color:rgba(180,180,180,1.0)
+}
+#toplistings{
+	background-color: rgba(235, 235, 235, 1.0);
+	min-height: 200px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+#topban{
+	min-height: 300px;
+	background-color:rgba(60, 60, 60, 1.0);
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin-bottom: 10px;
+}
+.form1{
+	height:50px;
+	width: 30vw;
+}
+.categories{
+	background-color: white;
+	max-height:200px;
+	border:1px solid rgba(235, 235, 235, 1.0);
+}
+body{
+	background-color: rgba(235, 235, 235, 1.0);
+}
+.hometop nav ul li{
+	display: inline-block;
+}
+.topp{
+	background-color:rgba(0, 0, 0, 1.0);
+}
+.ll{
+    color:white;
+}
+.hometop{}
+#catrow{
+	background-color: white;
+	min-height: 100px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#cat1{}
+#cat2{}
+#cat3{}
+#cat4{}
+#cat5{}
+#cat6{}
+#aboutrow{
+	background-color: white;
+	height: 1000px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.listings{
+	width: 18rem;
+	min-height: 265px;
+	border-radius: 10px;
+	background-color: white;
+	padding: 0px;
+	margin:10px ;
+	border: 2px solid blue;
+
+
+}
+.listingsover{
+	padding: 0px;
+	margin:0px ;
+	height: 20rem;
+	width: 18rem;
+}
+.listingsimg{
+	border-radius: 10px 10px 0px 0px;
+	width:inherit;
+	border: 2px solid red;
+}
+.price{
+	color: green;
+	padding: 0px;
+	margin:0px ;
+}
+.mindet{
+	min-height: 40px;
+}
+.description{
+	padding: 0px;
+	margin:0px ;
+	border: 2px solid green;
+}
+.listingsimgover{
+	height: 265px;
+	width: 18rem;
+	border: 2px solid brown;
+}
+.addtocart{
+	border: 2px solid gold;
+	border-radius: 6px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.searchgang{
+	display: flex;
+	justify-content: right;
+}
+.addtocart span p{
+}
+.pur{
+	min-height: 500px;
+	padding: 0px;
+	border: 2px solid yellow;
+}
+#pricec{
+	background-color: white;
+	padding: 15px;
+}
+#deets{
+	background-color: white;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+#more_deets{
+	text-decoration: none;
+	border:0px solid green;
+}
+#sellerimf{
+	background-color: white;
+	padding: 15px;
+	margin-top: 15px;
+}
+.listingpp{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 2px solid black;
+	display: block;
+}
+.tttt{
+	position: relative;
+}
+#st{
+	background-color: white;
+	padding: 15px;
+	margin-top: 15px;
+}
+.catty:hover{
+	border: 1px solid grey;
+}
+.sercee{
+	height: inherit;
+	padding: 0px;
+}
+#butt{
+	height: inherit;
+}
+#searchbutton{
+	position: absolute;
+	right: -2vw;
+}
+@media screen and (max-width:2560px){
+	.im{
+	   width: 400px;
+	   height: 400px;
+	}
+	.pimg{
+		width: 500px;
+		height: 500px;
+	}
+   }
+@media screen and (max-width:1440px){
+	.im{
+	   width: 400px;
+	   height: 400px;
+	}
+	.pimg{
+		width: 450px;
+		height: 450px;
+	}
+   }
+@media screen and (max-width:1024px){
+	.im{
+	   width: 400px;
+	   height: 400px;
+	}
+	.pimg{
+		width: 400px;
+		height: 400px;
+	}
+   }
+@media screen and (max-width:768px){
+			     .categories{
+				     width:33.33%;
+				 }
+				 #topban{
+				 	min-height: 200px;
+				 }
+				 .im{
+					width: 400px;
+					height: 400px;
+				 }
+				 .pimg{
+					width: 350px;
+					height: 350px;
+				 }
+				}
+@media screen and (max-width:425px){
+			     .categories{
+				     width:50%;
+				 }
+				 #topban{
+				 	min-height: 150px;
+				 }
+				 .im{
+					width: 300px;
+					height: 300px;
+				 }
+				 #searchplace{
+					display: none;
+				}
+				#butt{
+					display: none;
+				}
+				.buttcover{
+					display: none;
+				}
+				.pimg{
+					width: 300px;
+					height: 300px;
+				}
+				}
+@media screen and (max-width:375px){
+					.im{
+					   width: 200px;
+					   height: 200px;
+					}
+					.pimg{
+						width: 250px;
+						height: 250px;
+					}
+				   }				
+@media screen and (max-width:320px){
+					.im{
+					   width: 200px;
+					   height: 200px;
+					}
+					.pimg{
+						width: 200px;
+						height: 200px;
+					}
+				   }
+				   @media screen and (min-width:768px){
+					#searchbutton{
+						display: none;
+					}
+}					   				 

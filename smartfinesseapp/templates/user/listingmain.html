@@ -1,0 +1,135 @@
+{% extends 'user/temp.html'%}
+{%block title%}
+{{listing_deets.listing_title}}
+{%endblock%}
+{%block topp%}
+    <div class="container-fluid topp">
+        <div class="row">
+          <div class="col-md-2 hometop">
+            <nav class="navbar navbar-expand-lg">
+              <div id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+       </div>
+{%endblock%}
+{%block homecat%}
+<div class="container">
+        <div class="row">
+          <div class="col-lg-8" style="border: 2px solid red;max-height: 100vh;">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img style=" width: inherit;height: inherit;border: 2px solid green;" src="{{ url_for('static',filename='lp/'+listing_deets.listing_image)}}">
+              </div>
+              <div class="carousel-item">
+                <img style=" width:500px;" src="{{ url_for('static',filename='lp/'+listing_deets.listing_image)}}">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+          </div>
+          <div class="col-lg-4 pur">
+            <div id="deets">
+            <h1 id="title">{{listing_deets.listing_title}}</h1>
+            <h3 id="description">{{listing_deets.listing_description}}</h3>
+            </div>
+            <div id="pricec">
+              <h1 style="border: 2px solid red;display: flex;">
+                <span>&#8358; {{ "{:,.2f}".format(listing_deets.listing_price) }}</span>
+                <button class="btn" type="button" onclick="remove()">-</button>
+			    <span class="btn" id="buttt" disabled type="button" style="border: 2px solid green;">1</span>
+			    <button class="btn" type="button" onclick="add()">+</button>
+              </h1>
+              <form action="/addtocart" method="post">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}" id="csrf_token">
+                <input type="hidden" name="cui" value="{{user_deets.user_id}}" id="cui">
+                <input type="hidden" name="qty" value="1" id="qty">
+                <input type="hidden" name="cli" value="{{listing_deets.listing_id}}" id="cli">
+                <input type="hidden" name="si" value="{{si.store_id}}" id="si">
+              <button class="addtocart col-12">
+                <span>
+                  <p style="margin-top: 5px;">Add to cart</p>
+                </span>
+              </button>
+              </form>
+            </div>
+            <div id="sellerimf">
+              <img src="{{ url_for('static',filename='pp/'+si.store_image)}}" class="listingpp">
+              <div style="display: inline-block;"><span><h6>{{si.store_name}}</h6></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            {%for i in listings%}
+                <div class="card col-lg-2 col-md-4 col-sm-6 col-12">
+                    <form action="/more_details" method="post">
+                    <button id="more_deets">
+                    <div>
+                    <img src="{{ url_for('static',filename='lp/'+i.listing_image)}}" class="card-img-top" alt="photo of {{i.listing_image}}">
+                    <div class="card-body">
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}" id="csrf_token">
+                        <input type="hidden" name="id" value="{{i.listing_id}}" id="id">
+                        <p class="card-text">{{i.listing_title}}</p>
+                        <p class="price">&#8358;{{i.listing_price}}</p>
+                    </div>
+                    </div>
+                    </button>
+                    </form>
+                </div>
+            {%endfor%}
+        </div>
+      </div>
+      <script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script type="text/javascript" language="javascript">
+				var counter = 0;
+
+			function add(){
+				counter = counter + 1;
+				if (counter > 9){
+					counter = 9;
+					document.getElementById('qty').value = counter;
+				}
+				else{
+					document.getElementById('buttt').innerHTML = counter;
+					document.getElementById('qty').value = counter;
+				}
+			    }
+			function remove(){
+				counter = counter - 1;
+				if (counter < 1){
+					counter = 1;
+					document.getElementById('qty').value = counter;
+				}
+				else{
+					document.getElementById('buttt').innerHTML = counter;
+					document.getElementById('qty').value = counter;
+				}
+			    }
+			function updt(){
+				counter = counter - 1;
+				if (counter < 1){
+					counter = 1;
+				}
+				else{
+					document.getElementById('buttt').innerHTML = counter;
+				}
+			    }
+			</script>
+{%endblock%}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!---
+Project: smokeyfundz
+Date: 5/may/2022
+Author: Lord Smoke
+--->
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>{%block title%}Home{%endblock%}</title>
+	<!-- Bootstrap CSS Stylesheet-->
+			<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bootstrap/js/bootstrap.js')}}">
+			<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='fa/fontawesome.min.css')}}">
+			<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/steal.css')}}">
+</head>
+    <body>
+        {%block topp%}
+
+        {%endblock%}
+        {%block topban%}
+
+        {%endblock%}
+        {%block homecat%}
+        {%endblock%}
+        {%block orders%}
+        {%endblock%}
+        {%block listing%}
+        {%endblock%}
+      <div class="container-fluid footerc">
+        <div class="row">
+          <div class="col-lg-2 footer">
+            <h6>About us</h6>
+            <a href="/aboutus">About SMARTFINESSE</a><br>
+            <a href="/aboutus">Terms & Conditions</a><br>
+          </div>
+          <div class="col-lg-2 footer">
+            <h6>Support</h6>
+            <a href="/support">support@smartfinesse.com</a><br>
+            <a href="/support">contact us</a><br>
+            <a href="/support">safety tips</a><br>
+          </div>
+          <div class="col-lg-2 footer">
+            <h6>Our apps</h6>
+            <p>[coming soon to ios & andriod]</p>
+          </div>
+          <div class="col-lg-2 footer nav-link">
+            <h6>Our resources</h6>
+            <a href="https://www.facebook.com">facebook</a><br>
+            <a href="https://www.instagram.com">instagram</a><br>
+            <a href="https://www.twitter.com">twitter</a><br>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid lastt">
+        <div class="row">
+          <div class="col">
+            <p class="text-center">© 2022 smartfinesse</p>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>

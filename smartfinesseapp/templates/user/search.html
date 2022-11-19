@@ -1,0 +1,42 @@
+{% extends 'user/temp.html'%}
+{%block listing%}
+<div class="container" id="toplistings" style="min-height:600px">
+        <div class="row">
+          <div class="col-12">
+            <h2>search:{{tag}}</h2>
+          </div>
+            {%if total == 0%}
+            <h1 class="col-lg-4 col-md-8 col-12" style="display:flex;">No match</h1>
+            {%else%}
+            {%for i in listings%}
+                <div class="card col-lg-2 col-md-4 col-sm-6 col-12">
+                    <form action="/more_details" method="post">
+                    <button id="more_deets">
+                    <div style="">
+                    <img src="{{ url_for('static',filename='lp/'+i.listing_image)}}" class="card-img-top" alt="photo of {{i.listing_image}}">
+                    <div class="card-body">
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}" id="csrf_token">
+                        <input type="hidden" name="id" value="{{i.listing_id}}" id="id">
+                        <p class="card-text">{{i.listing_title}}</p>
+                        <p class="price">&#8358;{{i.listing_price}}</p>
+                    </div>
+                    </div>
+                    </button>
+                    </form>
+                </div>
+            {%endfor%}
+            {%endif%}
+        </div>
+      </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#more_deets').click(function(){
+        //var data2send =$('#myform').serialize()
+        session['deets'] = listings.listing_id
+        })
+    })
+</script>
+{%endblock%}
+{%block title%}
+    Home
+{%endblock%}

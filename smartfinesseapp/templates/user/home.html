@@ -1,0 +1,134 @@
+{% extends 'user/temp.html'%}
+{%block topp%}
+    <div class="container-fluid topp">
+        <div class="row tttt">
+          <div class="col-md-6 col-lg-6 hometop">
+            <nav class="navbar navbar-expand">
+              <div id="navbarNav">
+                  {% if session.get("user") == None%}
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link ll" href="/signup">Sign up </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ll" href="/login">login</a>
+              </li>                           
+                  <li class="nav-item">
+                    <a class="nav-link ll" href="/">Home</a>
+                  </li>
+                  <div id="searchbutton">
+                  <img src="{{ url_for('static',filename='images/inoknow.png')}}" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" style="height: 40px; width: 40px;">
+                  </div>
+                </ul>
+                    {%else%}
+                  <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link ll" href="/profile">Account</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ll" href="/cart">Cart</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ll" href="/">Home</a>
+                  </li>
+                  <div id="searchbutton">
+                  <img src="{{ url_for('static',filename='images/inoknow.png')}}" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" style="height: 40px; width: 40px;">
+                  </div>
+                </ul>
+                  {%endif%}
+              </div>
+            </nav>
+          </div>
+          <div class="col-1"></div>
+          <div class="col-lg-5 col-md-5 mt-1 sercee" id="searchplace">
+            <form action="/search" method="post">
+              <div class="form-outline searchgang">
+                <input type="search" class="form-control form1" id="disapperingspirit" placeholder="Search" aria-label="?" name="?" id="butt" onclick="toggle()"/>
+                <script type="text/javascript">document.getElementById("disapperingspirit").setAttribute("hidden","hidden");</script>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}" id="csrf_token">
+                <img src="{{ url_for('static',filename='images/inoknow.png')}}" type="button" style="height: 50px; width: 50px;" id="butt" onclick="toggle()">
+              </div>
+            </form>
+          </div>
+        </div>
+       </div>
+{%endblock%}
+{%block topban%}
+
+{%endblock%}
+{%block homecat%}
+<div class="container">
+        <div class="row">
+          {%for i in categories%}
+            <div class="col-lg-2 col-md-4 col-sm-6 categories card catty">
+              <div>
+                <a href="{{i.category_links}}" style="text-decoration: none;">
+                    <div>
+                        <img src="{{ url_for('static',filename='ap/'+i.category_image)}}" class="img-fluid">
+                        <p>{{i.category_name}}</p>
+                    </div>
+                </a>
+              </div>
+            </div>
+            {%endfor%}
+            </div>
+        </div>
+{%endblock%}
+{%block listing%}
+<div class="container" id="toplistings">
+        <div class="row">
+          <div class="col-12">
+            <h2>Top listings</h2>
+          </div>
+            {%for i in listings%}
+                <div class="card col-lg-2 col-md-4 col-sm-6 col-12">
+                    <form action="/more_details" method="post">
+                    <button id="more_deets">
+                    <div>
+                    <img src="{{ url_for('static',filename='lp/'+i.listing_image)}}" class="card-img-top" alt="photo of {{i.listing_image}}">
+                    <div class="card-body">
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}" id="csrf_token">
+                        <input type="hidden" name="id" value="{{i.listing_id}}" id="id">
+                        <p class="card-text">{{i.listing_title}}</p>
+                        <p class="price">&#8358;{{i.listing_price}}</p>
+                    </div>
+                    </div>
+                    </button>
+                    </form>
+                </div>
+            {%endfor%}
+        </div>
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style="height: 150px;">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasTopLabel">You are looking for ?:</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+      <form action="/search" method="post">
+        <div class="form-outline">
+          <input type="search" class="form-control form1" id="disapperingspirit" placeholder="Search" aria-label="?" name="?" style="border: 2px solid rgb(75, 74, 74); width: 100%;"/>
+          <input type="hidden" name="csrf_token" value="{{csrf_token()}}" id="csrf_token">
+        </div>
+      </form>
+  </div>
+</div>
+      </div>
+      <script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+      <script src="{{ url_for('static', filename='jquery/jquery.js')}}">
+        
+      </script>
+<script type="text/javascript">
+    let toggle = () => {
+      let element = document.getElementById("disapperingspirit");
+      let hidden = element.getAttribute("hidden");
+      if (hidden){
+        element.removeAttribute("hidden")
+      }else{
+        element.setAttribute("hidden","hidden");
+      }
+    }
+</script>
+{%endblock%}
+{%block title%}
+    Home
+{%endblock%}
